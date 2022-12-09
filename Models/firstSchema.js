@@ -81,13 +81,12 @@ const firstSchemaSend = mongoose.model('member', firstSchema)
 
 // Update Many Collections 
 const updateFunction =  (id) => {
-    firstSchemaSend.updateMany({ name :id }, {name : 'Ahmed Raza Sunni'  }, {upsert: true},
-    function (err, docs) {
+    firstSchemaSend.findByIdAndDelete((id), function (err, docs) {
 if (err){
 console.log(err)
 }
 else{
-console.log("Updated User : ", docs);
+console.log("Delete User : ", docs);
 }
 });
 }
